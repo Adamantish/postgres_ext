@@ -15,7 +15,7 @@ proper SQL in the CTE.
 Let's expand a `#with` call to its resulting SQL code:
 
 ```ruby
-Score.with(my_games: Game.where(id: 1)).joins('JOIN my_games ON scores.game_id = my_games.id')
+Score.with(my_games: Game.where(id: 1)).joins('JOIN my_games ON scores.game_id = my_games.id').select('*')
 ```
 
 The following will be generated when that relation is evaluated:
